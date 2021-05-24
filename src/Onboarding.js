@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, View, StyleSheet, Text} from 'react-native';
 
-const Home = ({navigation}) => {
+const Onboarding = ({navigation}) => {
   const onSignUp = () => navigation.navigate('SignUp');
 
   return (
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Onboarding;
