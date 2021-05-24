@@ -37,7 +37,7 @@ const SignUp = ({navigation}) => {
     const validatedEmail = validateEmail();
     const validatedPassword = validatePassword();
     if (validatedEmail && validatedPassword) {
-      navigation.navigate('');
+      navigation.navigate('Home', {email});
     }
   };
 
