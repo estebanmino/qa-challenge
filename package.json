@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "ios": "npx react-native run-ios",
+    "ios:e2e": "detox build --configuration ios.sim.debug && detox test --configuration ios.sim.debug --cleanup --workers 2",
+    "start": "npx react-native start",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -18,10 +19,33 @@
     "@babel/runtime": "^7.14.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
+    "detox": "^18.14.1",
     "eslint": "^7.27.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.0",
     "react-test-renderer": "17.0.1"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/MobileQAChallenge.app",
+        "build": "yarn ios",
+        "type": "ios.simulator",
+        "device": {
+          "type": "iPhone 11 Pro"
+        }
+      },
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "yarn android",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Pixel_3_API_30"
+        }
+      }
+    },
+    "runner-config": "e2e/config.json",
+    "test-runner": "jest"
   },
   "jest": {
     "preset": "react-native"
