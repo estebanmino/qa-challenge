@@ -1,13 +1,11 @@
 import React from 'react';
 import {Button, View, StyleSheet, Text} from 'react-native';
 
-const Home = ({navigation}) => {
-  const onSignUp = () => navigation.navigate('SignUp');
-
+const SignUp = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{'MetaMask Demo'}</Text>
-      <Button onPress={onSignUp} title="Sign Up" />
+      <Text style={styles.title}>{'Sign Up'}</Text>
+      <Button title="Sign Up" />
     </View>
   );
 };
@@ -24,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default SignUp;

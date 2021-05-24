@@ -1,25 +1,19 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet, Text} from 'react-native';
+import Home from './src/Home';
+import SignUp from './src/SignUp';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const App = () => {
+const Stack = createStackNavigator();
+
+export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{'MetaMask Demo'}</Text>
-      <Button title="Sign Up" />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} options={{title: 'Home'}} />
+
+        <Stack.Screen name="SignUp" component={SignUp} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-  },
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-export default App;
+}
